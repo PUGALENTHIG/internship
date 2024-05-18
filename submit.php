@@ -20,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send email
     $headers = "From: $email";
     if (mail($to, $subject, $message, $headers)) {
-        echo "Thank you for your registration. We will contact you soon!";
+        header("Location: thank_you.html"); // Redirect to thank you page
+        exit();
     } else {
         echo "Oops! Something went wrong. Please try again later.";
     }
